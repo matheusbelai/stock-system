@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/index.css">
+    <meta name="author" content="Belai">
+    <title>Home</title>
+</head>
+<body>
+    <header th:fragment="cabecalho">
+        <nav  class="navbar navbar-expand-lg bg-primary">
+
+            <a th:href="@{/}" class="navbar-brand text-white logo">Stock</a>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navmobile">
+                <span class="text-dark navbar-toggler-icon"></span>
+          </button>
+
+          <div id="navmobile" class=" navbar-collapse collapse justify-content-end">
+            <a class="text-white nav-item nav-link" href="#">Inicio</a>
+            <a class="text-white nav-item nav-link" href="#">Cadastrar produto</a>
+            <a class="text-white nav-item nav-link" href="#">Pesquisar produto</a>
+            <a class="btn btn-danger text-white sair ml-2">Sair</a>
+          </div>
+        </nav>
+    </header>
+
+    <footer th:fragment="rodape">
+        <div class="rodape">
+        <span >Todos os direitos reservados - 2020 &copy; Matheus Belai</span>
+    </div>
+      </footer>
+    <script src="/webjars/jquery/3.5.1/jquery.min.js"></script>
+    <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>
