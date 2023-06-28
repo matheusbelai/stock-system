@@ -1,9 +1,12 @@
 package com.stock.stocksystem.model;
 
 import com.stock.stocksystem.Enums.Categoria;
+import com.stock.stocksystem.Enums.Status;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -13,7 +16,7 @@ public class Produto {
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    private Long id;
 
     @Column(name = "nome")
     private String nome;
@@ -21,11 +24,13 @@ public class Produto {
     @Column(name = "valor")
     private Double valor;
 
-    @Column(name ="cateogria")
+    @Column(name ="categoria")
+    @Enumerated(EnumType.STRING)
     private Categoria categoria;
 
-    @Column(name = "satus")
-    private String status;
+    @Column(name="status")
+    @Enumerated(EnumType.STRING)
+    private Status status;
 
     @Column(name = "quantidade")
     private Integer quantidade;
@@ -33,10 +38,11 @@ public class Produto {
     public Produto() {
     }
 
-    public Produto(long id, String nome, Double valor, String status, Integer quantidade) {
+    public Produto(long id, String nome, Double valor, Categoria categoria, Status status, Integer quantidade) {
         this.id = id;
         this.nome = nome;
         this.valor = valor;
+        this.categoria = categoria;
         this.status = status;
         this.quantidade = quantidade;
     }
@@ -65,14 +71,6 @@ public class Produto {
         this.valor = valor;
     }
 
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
     public Integer getQuantidade() {
         return quantidade;
     }
@@ -87,6 +85,14 @@ public class Produto {
 
     public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
+    }
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
     }
 
     

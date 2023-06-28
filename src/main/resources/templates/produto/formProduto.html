@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/index.css">
+    <meta name="author" content="Belai">
+    <title>+ Cadastrar produto</title>
+</head>
+<body>
+
+    <div th:replace="fragmentos/fragmentos :: cabecalho"></div>
+
+    <div class="container">
+
+        <h4>+ Inserir produto</h4>
+        <br><br>
+
+        <form  method="post" action="/CadastrarProduto" th:object="${produto}">
+            <div class="row">
+                <div class="col-md-5 form-group offset-md-4" >
+                    <label for="nome">Nome do produto:</label>
+                    <input class="form-control" type="text" placeholder="produto..." th:field="*{nome}">
+                </div>
+            </div>
+
+            <!--categoria-->
+
+            <div class="row">
+                <div class="col-md-5 form-group offset-md-4" >
+                    <label for="nome">Selecione a categoria:</label>
+                   <select class="form-control" name="" th:field="*{categoria}">
+                        <option th:each="categoria : ${T(com.stock.stocksystem.Enums.Categoria).values()}"
+                        th:value="${categoria}" th:text="${categoria.getCategoria}"></option>
+                   </select>
+                </div>
+            </div>
+
+            <!--valor-->
+
+            <div class="row">
+                <div class="col-md-5 form-group offset-md-4" >
+                    <label for="valor">Valor do produto:</label>
+                    <input class="form-control" type="text" placeholder="R$ 00,00" th:field="*{valor}">
+                </div>
+            </div>
+
+            <!--status-->
+
+            <div class="row">
+                <div class="col-md-5 form-group offset-md-4" >
+                    <label for="nome">Selecione o status:</label>
+                   <select class="form-control"  th:field="*{status}">
+                        <option th:each="status : ${T(com.stock.stocksystem.Enums.Status).values()}"
+                        th:value="${status}" th:text="${status.getStatus}"></option>
+                   </select>
+                </div>
+            </div>
+
+            <!--quantidade-->
+            <div class="row">
+                <div class="col-md-5 form-group offset-md-4 formprodut" >
+                    <label for="nome">Quantidade em estoque:</label>
+                    <input class="form-control" type="number" placeholder="quantidade..." th:field="*{quantidade}">
+                </div>
+            </div>
+
+            <div class="row">
+                <button type="submit" class="btn btn-success offset-md-5">Cadastrar</button>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="" class="btn btn-danger" >Voltar</a>
+            </div>
+
+        </form>
+
+    </div>
+
+
+    <script src="/webjars/jquery/3.5.1/jquery.min.js"></script>
+    <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

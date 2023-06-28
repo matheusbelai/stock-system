@@ -8,8 +8,12 @@ public enum Categoria {
 
     private String categoria;
 
-    private Categoria(String cateogria){
-        this.categoria = cateogria;
+    private Categoria(String categoria){
+        this.categoria = categoria;
     }
 
+    public String getCategoria() {
+        return categoria;
+    }
+ 
 }

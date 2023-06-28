@@ -41,8 +41,6 @@ h1{
 }
 .rodape{text-align: center;}
 
-/* responsividade */
-
-@media screen and (max-widht: 854px){
-    
+.container{
+    margin-top: 50px;
 }
