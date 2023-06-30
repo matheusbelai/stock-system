@@ -26,7 +26,7 @@ public class ProdutoController {
     @PostMapping("CadastrarProduto")
     public ModelAndView CadastrarProduto(Produto produto){
         ModelAndView mv = new ModelAndView();
-        mv.setViewName("redirect:/produto/listProduto");
+        mv.setViewName("redirect:/listarProduto");
         produtorepository.save(produto);
         return mv;
     }
@@ -35,7 +35,7 @@ public class ProdutoController {
     public ModelAndView ListarProduto(Produto produto){
         ModelAndView mv = new ModelAndView();
         mv.setViewName("produto/listProduto");
-     //   mv.addObject("listarProduto", produtorepository.findAll());
+        mv.addObject("listarProduto", produtorepository.findAll());
         return mv;
     }
 }
