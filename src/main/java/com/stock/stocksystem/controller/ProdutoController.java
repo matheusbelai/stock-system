@@ -3,7 +3,9 @@ package com.stock.stocksystem.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.data.domain.Sort;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.stock.stocksystem.dao.ProdutoDAO;
@@ -35,7 +37,36 @@ public class ProdutoController {
     public ModelAndView ListarProduto(Produto produto){
         ModelAndView mv = new ModelAndView();
         mv.setViewName("produto/listProduto");
-        mv.addObject("listarProduto", produtorepository.findAll());
+        //mv.addObject("listarProduto", produtorepository.findAll());
+        Sort sort = Sort.by(Sort.Direction.ASC, "id");
+        mv.addObject("listarProduto", produtorepository.findAll(sort));
         return mv;
     }
+
+    @GetMapping("/alterar/{id}")
+    public ModelAndView Alterar(@PathVariable("id") Long id){
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("produto/alterar");
+        Produto produto = produtorepository.getReferenceById(id);
+        mv.addObject("produto", produto);
+        return mv;
+    }
+
+    @PostMapping("/alterar")
+    public ModelAndView Alterar(Produto produto){
+        ModelAndView mv = new ModelAndView();
+        produtorepository.save(produto);
+        mv.setViewName("redirect:/listarProduto");
+        return mv;
+
+    }
+
+    @GetMapping("/excluir/{id}")
+    public String ExcluirAluno(@PathVariable("id")Long id){
+        produtorepository.deleteById(id);
+        return "redirect:/listarProduto";
+    }
+
+
+
 }

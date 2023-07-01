@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/index.css">
     <meta name="author" content="Belai">
-    <title>+ Cadastrar produto</title>
+    <title>+ Alterar produto</title>
 </head>
 <body>
 
@@ -14,10 +14,11 @@
 
     <div class="container">
 
-        <h4>+ Inserir produto</h4>
+        <h4>+ Alterar produto</h4>
         <br><br>
 
-        <form  method="post" action="/CadastrarProduto" th:object="${produto}">
+        <form  method="post" action="/alterar" th:object="${produto}">
+            <input type="hidden" th:field="*{id}">
             <div class="row">
                 <div class="col-md-5 form-group offset-md-4" >
                     <label for="nome">Nome do produto:</label>
@@ -67,9 +68,9 @@
             </div>
 
             <div class="row">
-                <button type="submit" class="btn btn-success offset-md-5">Cadastrar</button>
+                <button type="submit" class="btn btn-success offset-md-5">Salvar</button>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <a href="" class="btn btn-danger" >Voltar</a>
+                <a th:href="@{/listarProduto}" class="btn btn-danger" >Voltar</a>
             </div>
 
         </form>
