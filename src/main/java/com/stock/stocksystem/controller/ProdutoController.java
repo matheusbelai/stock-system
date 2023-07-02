@@ -67,6 +67,27 @@ public class ProdutoController {
         return "redirect:/listarProduto";
     }
 
+    @GetMapping("filtroProduto")
+    public ModelAndView FiltroProduto(){
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("produto/filtroProduto");
+        return mv;
+    } 
 
+    @GetMapping("produtoEstoque")
+    public ModelAndView ProdutoEstoque(){
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("produto/estoqueProduto");
+        mv.addObject("produtoEstoque", produtorepository.findByStatusEstoque());
+        return mv;
+    }
+
+    @GetMapping("produtoEsgotado")
+    public ModelAndView produtoEsgotado(){
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("produto/esgotadoProduto");
+        mv.addObject("produtoEsgotado", produtorepository.findByStatusEsgotado());
+        return mv;
+    }
 
 }

@@ -3,11 +3,11 @@
 ---
 desenvolvendo esse projeto para praticar as tecnologias
 
--Spring
--MySQL
--Thymeleaf
--MVC
-
+* Spring
+* SQL
+* Thymeleaf
+* Padrão MVC
+* JPA
 
 
 

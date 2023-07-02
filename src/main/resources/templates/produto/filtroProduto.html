@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/index.css">
+    <meta name="author" content="Belai">
+    <title>+ Filtrar produto</title>
+</head>
+<body>
+
+    <div th:replace="fragmentos/fragmentos :: cabecalho"></div>
+
+    <div class="container">
+
+        
+        <h4 >Encontrar produto</h4>
+
+        <form action="" method="post">
+
+            <div class="input-group col-6 offset-3">
+                <input type="text" class="form-control" placeholder="Buscar produto">
+                <div class="input-group-append"></div>
+                <button type="submit" class="btn btn-outline-secondary ml-3">Pesquisar</button>
+            </div>
+            <br><br><br>
+        </form>
+        <div class="row float">
+            
+            <div class="card" style="width: 14em; ">
+              <a th:href="@{/produtoEstoque}"><img src="img/box.jpg"  class="card-img-top"></a>
+                <div class="card-body">
+                    <h5 class="card-title">Produtos em estoque</h5>
+                    <p class="card-text">Busque por todos produtos em estoque</p>
+                    <a th:href="@{/produtoEstoque}" class="btn btn-primary">Busque aqui</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="row float">
+            
+            <div class="card ml-5" style="width: 14em;">
+                <a th:href="@{/produtoEsgotado}"><img src="img/box.jpg"  class="card-img-top"></a>
+                <div class="card-body">
+                    <h5 class="card-title">Produtos esgotados</h5>
+                    <p class="card-text">Busque por todos produtos esgotados</p>
+                    <a th:href="@{/produtoEsgotado}" class="btn btn-primary">Busque aqui</a>
+                </div>
+            </div>
+        </div>
+    
+    </div>
+
+
+
+
+    <script src="/webjars/jquery/3.5.1/jquery.min.js"></script>
+    <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>
