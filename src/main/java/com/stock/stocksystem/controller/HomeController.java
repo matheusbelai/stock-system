@@ -11,7 +11,7 @@ public class HomeController {
     
 
     //
-    @GetMapping(value = "/")
+    @GetMapping(value = "/index")
     public ModelAndView index(){
         ModelAndView mv = new ModelAndView();
         mv.setViewName("home/index");
