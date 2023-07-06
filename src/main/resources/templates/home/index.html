@@ -10,7 +10,7 @@
 </head>
 <body>
     
-    <div th:replace="fragmentos/fragmentos :: cabecalho"></div>
+    <div th:replace="(~{fragmentos/fragmentos :: cabecalho})"></div>
     
     <section class=" center content">
       <div class="container">
@@ -22,14 +22,15 @@
       </div>
 
       <div class="wm">
-        <button class="botam btn btn-primary">Pesquisar produto</button>
+       <a th:href="@{filtroProduto}"><button class="botam btn btn-primary">Filtrar produtos</button></a>
       </div>
 
       </div>
 
     </section>
+
     
-    <div th:replace="fragmentos/fragmentos :: rodape"></div>
+    <div th:replace="(~{fragmentos/fragmentos :: rodape})">"</div>
     
     
 

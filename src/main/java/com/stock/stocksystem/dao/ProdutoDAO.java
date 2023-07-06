@@ -8,6 +8,7 @@ import org.springframework.data.domain.Sort;
 import com.stock.stocksystem.model.Produto;
 
 public interface ProdutoDAO extends JpaRepository<Produto, Long>{
+
     List<Produto> findAll(Sort sort);
 
 
@@ -16,5 +17,7 @@ public interface ProdutoDAO extends JpaRepository<Produto, Long>{
 
     @Query("select m from Produto m where m.status = 'ESGOTADO' ")
     public List<Produto> findByStatusEsgotado();
+
+    
 }
 
